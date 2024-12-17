@@ -3,13 +3,6 @@ import sys
 import src.constants as c
 
 
-def is_white_space(ch: str) -> bool:
-    if ch == "\n" or ch == "" or ch == " " or ch == "\t":
-        return True
-
-    return False
-
-
 class File:
     def __init__(self, file: io.TextIOWrapper):
         self.f = file
@@ -19,7 +12,7 @@ class File:
 
         for l in self.f:
             for w in l.split():
-                if not is_white_space(w):
+                if w.isalpha():
                     word_ctr += 1
 
         return word_ctr
@@ -29,9 +22,10 @@ class File:
 
         for l in self.f:
             ln = l.lower()
+            ln.isspace
             for i in range(len(ln)):
                 ch = ln[i]
-                if is_white_space(ch):
+                if not ch.isalpha():
                     continue
 
                 if ch in record:
