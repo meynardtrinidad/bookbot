@@ -11,7 +11,7 @@ class File:
         word_ctr = 0
 
         for l in self.f:
-            for w in l.split(" "):
+            for w in l.split():
                 if w != "\n" and w != "":
                     word_ctr += 1
 
